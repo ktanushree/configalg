@@ -1,8 +1,8 @@
 # CloudGenix Disable SIP ALG
-This script is used to disable SIP ALG on CloudGenix devices running pre 5.2.1 software release. 
+This script is used to enable or disable SIP ALG on CloudGenix devices running pre 5.2.1 software release. 
 
 #### Synopsis
-This script enables disabling SIP ALG on devices running software releases older than 5.2.1. For 5.2.1 and higher versions, NAT Policy can be used to achieve this functionality.
+This script lets enable or disable SIP ALG on devices running software releases older than 5.2.1. For 5.2.1 and higher versions, NAT Policy can be used to achieve this functionality.
 
 
 #### Requirements
@@ -15,19 +15,25 @@ This script enables disabling SIP ALG on devices running software releases older
 MIT
 
 #### Installation:
- - **Github:** Download files to a local directory, manually run `disablealg.py`. 
+ - **Github:** Download files to a local directory, manually run `configalg.py`. 
 
 ### Examples of usage:
+Enable ALG for an element assigned to a site:
+```
+./configalg.py -SN Sitename -EN Elemname -A ENABLE
+```
+
 Disable ALG for an element assigned to a site:
 ```
-./disablealg.py -SN Sitename -EN Elemname
+./configalg.py -SN Sitename -EN Elemname -A DISABLE
 ```
 
 Help Text:
 ```angular2
-Tanushree:disablealg tanushreekamath$ ./disablealg.py -h
-usage: disablealg.py [-h] [--controller CONTROLLER] [--email EMAIL]
-                     [--pass PASS] [--sitename SITENAME] [--elemname ELEMNAME]
+Tanushree:disablealg tanushreekamath$ ./configalg.py -h
+usage: configalg.py [-h] [--controller CONTROLLER] [--email EMAIL]
+                    [--pass PASS] [--sitename SITENAME] [--elemname ELEMNAME]
+                    [--action ACTION]
 
 CloudGenix: Disable ALG.
 
@@ -55,6 +61,8 @@ Device Specific information:
                         Name of the Site
   --elemname ELEMNAME, -EN ELEMNAME
                         Name of the Element
+  --action ACTION, -A ACTION
+                        Action for ALG configuration. Select ENABLE or DISABLE
 Tanushree:disablealg tanushreekamath$ 
 ```
 
